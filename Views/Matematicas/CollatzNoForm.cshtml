@@ -1,0 +1,49 @@
+﻿@model List<int>
+@* Si hay objetos complejos en viewbag-viewdata, hay que convertirlos xq viewbag y viewdata no tienen tipado.
+    Hay sintaxis RAZOR precisa para eso
+*@
+@{
+    List<int> EnlacesCollatz = ViewBag.EnlacesNumeros as List<int>;
+}
+<h1>Collatz Sin Formulario</h1>
+<div class="container">
+    <h2>Seleciona un Numero</h2>
+    <div class="btn-group" role="group">
+
+        @if (EnlacesCollatz != null)
+        {
+            foreach (int num in EnlacesCollatz)
+            {
+                @Html.ActionLink(num.ToString(), "CollatzNoForm", "Matematicas", new { numero = num }, new { @class = "btn btn-secondary text-white" })
+            }
+
+        }
+        else
+        {
+            @Html.ActionLink("VOLVER", "CollatzNoForm", "Matematicas", null, new { @class = "btn btn-info text-white" })
+        }
+
+
+    </div>
+    @if (Model != null)
+    {
+        if (!ViewBag.Negativo)
+        {
+            <h2>Conjetura de Collatz, Numero @Model[0]</h2>
+            <ul class="list-inline">
+                @foreach (int num in Model)
+                {
+                    <li class="list-inline-item">@num</li>
+                }
+            </ul>
+
+        }
+        else
+        {
+            <h1 style="color:red">INTRUDUZCA UN NUMERO POSITIVO, MAYOR QUE CERO Y DISTINTO DE UNO</h1>
+        }
+
+    }
+
+
+</div>

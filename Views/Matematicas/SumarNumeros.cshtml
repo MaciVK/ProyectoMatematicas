@@ -1,0 +1,13 @@
+﻿<h1>Vista Sumar Numeros</h1>
+<form method="POST">
+    <label>Introduzca primer número</label>
+    <input type="number" name="num1" class="form-control" />
+    <label>Introduzca segundo número</label>
+    <input type="number" name="num2" class="form-control" />
+    <button type="submit" class="btn btn-success">SUMAR</button>
+</form>
+@if (ViewBag.Suma != null)
+{
+    <h1 style="color:forestgreen">Resultado: @ViewBag.Suma</h1>
+
+}

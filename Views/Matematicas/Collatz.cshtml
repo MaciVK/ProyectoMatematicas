@@ -1,0 +1,25 @@
+﻿@model List<int>
+<h1>Vista Conjetura de Collatz con Form</h1>
+<form method="post">
+    <label>Introduzca un numero:</label>
+    <input type="number" name="numero" class="form-control" />
+    <button class="btn btn-success" type="submit">Generar Collatz</button>
+</form>
+@if (Model != null)
+{
+    if (ViewBag.Negativo == true)
+    {
+        <h1 style="color:red">INTRUDUZCA UN NUMERO POSITIVO, MAYOR QUE CERO Y DISTINTO DE UNO</h1>
+    }
+    else
+    {
+        <ul class="list-inline">
+            @foreach (int num in Model)
+            {
+                <li class="list-inline-item">@num</li>
+            }
+        </ul>
+
+    }
+
+}

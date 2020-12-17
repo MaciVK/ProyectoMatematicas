@@ -1,0 +1,29 @@
+﻿@model List<int>
+<h1>Vista Tabla Multiplicar</h1>
+<form method="post">
+    <label>Intruduzca un numero</label>
+    <input type="number" name="numero" />
+    <button class="btn btn-success" type="submit">Mostrar Tabla</button>
+</form>
+@if (Model != null)
+{
+    <br />
+    <hr />
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Numero</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 1; i <= Model.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@ViewBag.Numero x @i</th>
+                    <td>@Model[i - 1]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
